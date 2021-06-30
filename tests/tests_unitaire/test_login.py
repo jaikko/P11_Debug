@@ -30,7 +30,9 @@ class TestLogin:
 
         rv = client.post('/showSummary', data=dict(
             email="to@trt.fr"))
-        assert rv.status_code == 302
+        assert rv.status_code == 200
+        html = rv.get_data(as_text=True)
+        assert "<li>Sorry, that email wasn&#39;t found</li>" in html
 
     # vérifier connexion avec email valide
     def test_correct_login(self, client):
