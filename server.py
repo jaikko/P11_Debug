@@ -32,7 +32,8 @@ def showSummary():
     if club:
         return render_template('welcome.html', club=club[0], competitions=competitions)
     else:
-        return redirect(url_for('index'))
+        flash("Sorry, that email wasn't found")
+        return render_template('index.html')
 
 
 @app.route('/book/<competition>/<club>')
