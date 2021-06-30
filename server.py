@@ -1,6 +1,6 @@
 import json
 import datetime
-from flask import Flask, render_template, request, redirect, flash, url_for
+from flask import Flask, render_template, request, redirect, flash, url_for, abort
 
 
 def loadClubs():
@@ -35,21 +35,20 @@ def showSummary():
 
 @app.route('/book/<competition>/<club>')
 def book(competition, club):
-    foundClub = [c for c in clubs if c['name'] == club][0]
-    foundCompetition = [c for c in competitions if c['name'] == competition][0]
+    foundClub = [c for c in clubs if c['name'] == club]
+    foundCompetition = [c for c in competitions if c['name'] == competition]
     if foundClub and foundCompetition:
         now = datetime.datetime.now()
-        str = foundCompetition['date'].split(" ")[0].split("-")
+        str = foundCompetition[0]['date'].split(" ")[0].split("-")
         compet_date =datetime.datetime(int(str[0]), int(str[1]), int(str[2]))
         if now > compet_date:
             flash("Competition expired")
-            return render_template('welcome.html', club=foundClub, competitions=competitions)
+            return render_template('welcome.html', club=foundClub[0], competitions=competitions)
         else:
             flash("Competition valid")
-            return render_template('booking.html', club=foundClub, competition=foundCompetition)
+            return render_template('booking.html', club=foundClub[0], competition=foundCompetition[0])
     else:
-        flash("Something went wrong-please try again")
-        return render_template('welcome.html', club=club, competitions=competitions)
+        abort(404)
 
 
 @app.route('/purchasePlaces', methods=['POST'])

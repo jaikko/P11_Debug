@@ -32,4 +32,4 @@ class TestBookingPastCompet:
     def test_incorrect_route(self, client):
 
         rv = client.get('/book/Spring/Tests')
-        assert rv.status_code == 500
+        assert rv.status_code == 404
