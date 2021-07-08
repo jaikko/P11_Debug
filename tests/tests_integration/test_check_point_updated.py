@@ -24,12 +24,12 @@ class TestPointsClubsUpdated:
 
     def test_booking(self, client):
         rv = client.post('/purchasePlaces', data=dict(
-            places=4,
+            places=2,
             competition="Spring Festival",
             club="Test"
             ))
         assert rv.status_code == 200
         html = rv.get_data(as_text=True)
         assert '<h2>Welcome, test@test.co </h2>' in html
-        assert 'Points available: 10' in html
+        assert 'Points available: 8' in html
         assert '<li>Great-booking complete!</li>' in html
