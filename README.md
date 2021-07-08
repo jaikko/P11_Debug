@@ -25,9 +25,9 @@
 
 3. Installation
 
-    - After cloning, change into the directory and type <code>virtualenv .</code>. This will then set up a a virtual python environment within that directory.
+    - After cloning, change into the directory, create a folder "env" and go to this one. Type <code>virtualenv .</code>. This will then set up a a virtual python environment within that directory.
 
-    - Next, type <code>source bin/activate</code>. You should see that your command prompt has changed to the name of the folder. This means that you can install packages in here without affecting affecting files outside. To deactivate, type <code>deactivate</code>
+    - Next, in the directory "env", type <code>source Scripts/activate</code>. To deactivate, type <code>deactivate</code>
 
     - Rather than hunting around for the packages you need, you can install in one step. Type <code>pip install -r requirements.txt</code>. This will install all the packages listed in the respective file. If you install a package, make sure others know by updating the requirements.txt file. An easy way to do this is <code>pip freeze > requirements.txt</code>
 
@@ -47,5 +47,12 @@
     You are free to use whatever testing framework you like-the main thing is that you can show what tests you are using.
 
     We also like to show how well we're testing, so there's a module called 
-    [coverage](https://coverage.readthedocs.io/en/coverage-5.1/) you should add to your project.
+    [coverage](https://coverage.readthedocs.io/en/coverage-5.1/) you should add to your project. 
+    I use Pytest for this project, you can read this [tutorial](https://flask.palletsprojects.com/en/2.0.x/tutorial/tests/)
 
+6. Locust 
+
+    You just need to type <code>locust -f locustfile.py</code>
+    For more information: go [here](https://docs.locust.io/en/stable/index.html)
+
+    
