@@ -48,7 +48,7 @@
 
     We also like to show how well we're testing, so there's a module called 
     [coverage](https://coverage.readthedocs.io/en/coverage-5.1/) you should add to your project. 
-    I use Pytest for this project, you can read this [tutorial](https://flask.palletsprojects.com/en/2.0.x/tutorial/tests/)
+    I use pytest for this project, you can read this [tutorial](https://flask.palletsprojects.com/en/2.0.x/tutorial/tests/).
 
 6. Locust 
 
